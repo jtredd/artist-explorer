@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from functools import  wraps
 from flask_cors import CORS, cross_origin
-from werkzeug.contrib.cache import SimpleCache
+from cachelib.simple import SimpleCache
 import pyen
 import uuid
 import time
@@ -22,6 +22,7 @@ ORIGINS = ['*']
 app.config['CORS_HEADERS'] = "Content-Type"
 app.config['CORS_RESOURCES'] = {r"/*": {"origins": ORIGINS}}
 app.config['PROPAGATE_EXCEPTIONS'] = True
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 cors = CORS(app)
 
